@@ -21,10 +21,17 @@
 
  # search email address
      re.search(r"[A-Za-z0-9_]+@[A-Za-z0-9]+\.[a-zA-Z]+",emaildata)    
-     re.search(r"\w+@\w+\.\w+",emaildata)
-     re.findall(r"\w+@\w+\.\w+",emaildata)
+     re.search(r"\w+@\w+\.\w+",emaildata) # re.search - find the first Match
+     re.findall(r"\w+@\w+\.\w+",emaildata)  # re.findall - find the all matches/ findall will convert all matches into a list
 
      result = re.findall(r"(\w+)@(\w+)\.(\w+)",emaildata)
      result.group(1)
+
+# --------------------------------------------
+
+   # search ip address
+    logfile = '192.168.0.1 [01/01/24 15:01:01] /index.html 200'
+     re.search(r"[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+",logfile)
+     re.search(r"\d+\.\d+\.\d+\.\d+", logfile)
 
 # --------------------------------------------
