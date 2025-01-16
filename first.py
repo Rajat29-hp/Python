@@ -8,16 +8,16 @@ print("You entered userid is :",userid)
 print("----------------------------")
 
 
-#2nd  method
+#dot method
 print("----------------------------")
 username = input("Enter your  username\n")
 userid = input("enter your id\n")
 
-print("User {} created with ID {} ",format (username,userid))
+print("User {} created with ID {} ",format(username,userid))
 print("----------------------------")
 
 
-# dot format method, it support python3
+# F method, it support python3
 print("----------------------------")
 username = input("Enter your  username\n")
 userid = input("enter your id\n")
