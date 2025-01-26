@@ -48,4 +48,20 @@ def swapinfo():
     print(f"Percentage Usage: {vm_swap.percent}%")
 
 swapinfo()
-              
+
+def infodiskpart():
+    print("="*40," Disk INFORMATION","="*40)
+    partitions = psutil.disk_partitions()
+    for diskpart in partitions:
+        print(f"Device : {diskpart.device}")
+        print(f"Mountpoint : {diskpart.mountpoint}")
+        print(f"Filesystem : {diskpart.fstype}")
+        diskpart_usage = psutil.disk_usage(diskpart.mountpoint)
+        print(f"Total Size: {humanize.naturalsize(diskpart_usage.total)}")
+        print(f"Total Used: {humanize.naturalsize(diskpart_usage.used)}")
+        print(f"Free Size: {humanize.naturalsize(diskpart_usage.free)}")
+        print(f"Percentage Usage: {diskpart_usage.percent}%")
+
+infodiskpart()
+
+
