@@ -64,4 +64,16 @@ def infodiskpart():
 
 infodiskpart()
 
-
+def networkinfo():
+    print("="*40," Network INFORMATION","="*40)
+    vm_interfaces = psutil.net_if_addrs()
+    for interface_name,interface_address in vm_interfaces.items():
+        print(f"Interface: {interface_name:}")
+        for addresses in interface_address:
+            if str(addresses.family) == "2":
+                print(f" IP Address : {addresses.address}")
+                print(f" NetMask : {addresses.netmask}")
+                print(f" Broadcast : {addresses.broadcast}")
+                print("-------------------------")
+                
+networkinfo()
