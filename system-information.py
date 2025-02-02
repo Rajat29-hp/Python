@@ -77,3 +77,17 @@ def networkinfo():
                 print("-------------------------")
                 
 networkinfo()
+
+
+def processinfo():
+    print("="*40," Network INFORMATION","="*40)
+    vm_process = psutil.process_iter(['pid','name','username'])
+    n = 0
+    for process in vm_process:
+        n = n + 1
+        print(f"Process: {process.info['name']} | PID: {process.info['pid']} | User :{process.info['username'] }")
+       
+    print(f"Total Number of Process : {n}")
+
+processinfo()
+
