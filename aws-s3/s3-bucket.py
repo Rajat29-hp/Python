@@ -34,3 +34,24 @@ def copy_to_bucket(file_path,bucket_name):
 
 
 copy_to_bucket('/etc/hosts','pythonmy4')
+
+# -----run the script as CL----------------------#
+
+def main():
+    parser = argparse.ArgumentParser(description="S3 Operation CLI")
+    parser.add_argument('command', choices=['create','copy'],help='Use create to create and list S3 bucket , use Copy to copy objects to a bucket and list and list ojects')
+    parser.add_argument('--bucket','-b',help='unique bucket name')
+    parser.add_argument('--file','-f',help='Absolute path to the file to upload')
+    args = parser.parse_args()
+
+    if args.command == 'create':
+       create_and_list_bucket(bucket_name=args.bucket,bucket_region='eu-north-1')
+
+    elif args.command == 'copy':
+       copy_to_bucket(args.file,args.bucket)
+    else:
+       printf("Invaliad choice, please refer to the --help")
+
+if __name__ == "__main__":
+    main()
+
