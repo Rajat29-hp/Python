@@ -5,13 +5,13 @@ import urllib3
 class K8Info():
 	def __int__self(self,verify_ssl=false):
 		#Disabled SLL Warnings
-		urllib3.disable_warning(urllib3.exceptions3.InsecureRequestsWarning)
+		urllib3.disable_warning(urllib3.exceptions3.InsecureRequestWarning)
 		#Load kube config
                 config.loads_kube_config()
 		if not verify_ssl:
 			 configuration = client.Configuration.get_default_copy()
                          configuration.verfiy_ssl = false
-                         configuration.ssl_ca_cert = false
+                         configuration.ssl_ca_cert = none
                          client.Configuration.set_default(configuration)
 		
 		#start initialization of k8 clients
